@@ -49,9 +49,20 @@ I used the \`glimpse()\` function from the dplyr package to examine the structur
 
 ```{r}
 college_data |>
-  select(INSTNM, SAT_AVG, ADM_RATE)
+  select(INSTNM, SAT_AVG, ADM_RATE) |>
+  slice_head(n = 10)
+
 ```
 
 I used the \`select()\` function from dplyr to choose the three variables requested: \`INSTNM\`, \`SAT_AVG\`, and \`ADM_RATE\`. This removes the other variables from the displayed dataset while keeping the information needed for this question.
 
-- Task 4: Create a scatterplot for SAT_AVG and ADM_RATE (Remove NA)
+- **Task 4: Create a scatterplot for SAT_AVG and ADM_RATE (Remove NA)**
+
+```{r}
+college_data |>
+  drop_na(SAT_AVG, ADM_RATE) |>
+  ggplot(aes(x = SAT_AVG, y = ADM_RATE)) +
+  geom_point()
+```
+
+First I called on the data frame then I used a pipe to run the rest of the code lines. I used \`drop_na()\` to remove observations with missing values for \`SAT_AVG\` or \`ADM_RATE\`. I then used \`ggplot()\` and \`geom_point()\` to create a scatterplot. \`SAT_AVG\` is placed on the x-axis and \`ADM_RATE\` is placed on the y-axis so that I can examine the relationship between average SAT scores and admission rates.
