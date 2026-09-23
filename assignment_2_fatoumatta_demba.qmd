@@ -29,7 +29,7 @@ Complete the following exercises **using only the tidyverse packages** (e.g., `d
 
 # Question:
 
-- Task 1: Read data using a relative path
+- **Task 1: Read data using a relative path**
 
 ```{r}
 college_data <- read.csv("~/Documents/Data_413/collegedata.csv")
@@ -37,7 +37,7 @@ college_data <- read.csv("~/Documents/Data_413/collegedata.csv")
 
 The first thing I did was download the data from the canvas page into my computer. Then I saved the data into my Data_413 so that it will be easy to to access the data. Then I set the working directory to be the same folder Data_413. Finally, I wrote the simple code above to pull the data into my R from my folder so that I can work with it.
 
-- Task 2:Determine rows and columns
+- **Task 2:Determine rows and columns**
 
 ```{r}
 glimpse(college_data)
@@ -45,6 +45,13 @@ glimpse(college_data)
 
 I used the \`glimpse()\` function from the dplyr package to examine the structure of the dataset. The output shows the total number of rows and columns in \`college_data\`. The rows represent the observations in the dataset, while the columns represent the variables.
 
-- Task 3: Use tidyverse to select INSTNM, SAT_AVG, and ADM_RATE
+- **Task 3: Use tidyverse to select INSTNM, SAT_AVG, and ADM_RATE**
+
+```{r}
+college_data |>
+  select(INSTNM, SAT_AVG, ADM_RATE)
+```
+
+I used the \`select()\` function from dplyr to choose the three variables requested: \`INSTNM\`, \`SAT_AVG\`, and \`ADM_RATE\`. This removes the other variables from the displayed dataset while keeping the information needed for this question.
 
 - Task 4: Create a scatterplot for SAT_AVG and ADM_RATE (Remove NA)
