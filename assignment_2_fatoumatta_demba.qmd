@@ -39,6 +39,12 @@ The first thing I did was download the data from the canvas page into my compute
 
 - Task 2:Determine rows and columns
 
+```{r}
+glimpse(college_data)
+```
+
+I used the \`glimpse()\` function from the dplyr package to examine the structure of the dataset. The output shows the total number of rows and columns in \`college_data\`. The rows represent the observations in the dataset, while the columns represent the variables.
+
 - Task 3: Use tidyverse to select INSTNM, SAT_AVG, and ADM_RATE
 
 - Task 4: Create a scatterplot for SAT_AVG and ADM_RATE (Remove NA)
